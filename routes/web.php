@@ -1,6 +1,7 @@
 <?php
-
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HardwareController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return ['version' => '1.0'];
 });
+
+Route::get('/hardware', [HardwareController::class, 'index']);
+Route::post('/hardware/create', [HardwareController::class, 'create']);
+Route::post('/login', [HardwareController::class, 'login']);
+// Route::post('/sender/bookmark', [Sender::class, 'bookmark']);
