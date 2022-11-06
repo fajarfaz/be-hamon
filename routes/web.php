@@ -18,6 +18,14 @@ Route::get('/', function () {
     return ['version' => '1.0'];
 });
 
+Route::get('/token', function (Request $request) {
+    $token = $request->session()->token();
+ 
+    $token = csrf_token();
+ 
+    return $token;
+});
+
 Route::get('/hardware', [HardwareController::class, 'index']);
 Route::post('/hardware/create', [HardwareController::class, 'create']);
 Route::post('/login', [HardwareController::class, 'login']);

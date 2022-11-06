@@ -11,10 +11,10 @@ class VerifyCsrfToken extends Middleware
      *
      * @var array<int, string>
      */
-    protected $addHttpCookie = true;
-    protected $except = [
+    // protected $addHttpCookie = true;
+    // protected $except = [
 
-        'http://hamon.fajarfaz.space/'
-        //
-    ];
+    //     'http://127.0.0.1:8000/hardware/create'
+    //     //
+    // ];
 }
