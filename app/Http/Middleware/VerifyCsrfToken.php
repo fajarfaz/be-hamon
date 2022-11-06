@@ -14,7 +14,7 @@ class VerifyCsrfToken extends Middleware
     // protected $addHttpCookie = true;
     protected $except = [
 
-        'http://hamon.fajarfaz.space'
+        'http://hamon.fajarfaz.space/hardware/create'
         //
     ];
 }
