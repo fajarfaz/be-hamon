@@ -20,18 +20,21 @@ class HardwareController extends Controller
     {
         $hardwares = $request->json()->all();
 
-            foreach ($hardwares as $hardware) {
+        foreach ($hardwares as $hardware) {
+
+            if ($hardware['name'] != 'Categories') {
                 $result = Hardware::create([
                     'name' => $hardware['name'],
                     'price' => $hardware['price'],
                     'source' => $hardware['source'],
                 ]);
-
-                print_r($result);
             }
-        
 
-       
+            // print_r($result);
+        }
+
+
+
         // foreach($area as $i => $v)
         // {
         //     echo $v['name'].'<br/>';
