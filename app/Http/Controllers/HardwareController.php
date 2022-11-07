@@ -9,6 +9,8 @@ class HardwareController extends Controller
 {
     public function index()
     {
+        $response = Hardware::all();
+        return response()->json($response);
     }
 
     public function list(Request $request)
