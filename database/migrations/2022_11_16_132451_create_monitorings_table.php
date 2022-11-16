@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHardwareTable extends Migration
+class CreateMonitoringsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateHardwareTable extends Migration
      */
     public function up()
     {
-        Schema::create('hardware', function (Blueprint $table) {
+        Schema::create('monitorings', function (Blueprint $table) {
             $table->id();
-            $table->string('id_ori');
-            $table->string('name');
-            $table->string('brand');
-            $table->longText('desc');
-            $table->string('category');
+            $table->string('hardware_id');
+            $table->integer('price');
+            $table->string('source');
+            $table->string('link');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateHardwareTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hardware');
+        Schema::dropIfExists('monitorings');
     }
 }

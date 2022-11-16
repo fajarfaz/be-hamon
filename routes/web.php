@@ -2,6 +2,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HardwareController;
+use App\Http\Controllers\MonitoringController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +29,6 @@ Route::get('/token', function (Request $request) {
 
 Route::get('/hardware', [HardwareController::class, 'index']);
 Route::post('/hardware/create', [HardwareController::class, 'create']);
+Route::post('/monitoring/create', [MonitoringController::class, 'create']);
 Route::post('/login', [HardwareController::class, 'login']);
 // Route::post('/sender/bookmark', [Sender::class, 'bookmark']);
