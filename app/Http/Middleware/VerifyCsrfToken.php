@@ -14,7 +14,7 @@ class VerifyCsrfToken extends Middleware
     // protected $addHttpCookie = true;
     protected $except = [
        
-        'http://hamon.fajarfaz.space/*',
+        'https://hamon.fajarfaz.space/*',
         'http://127.0.0.1:8000/*',
         //
     ];
