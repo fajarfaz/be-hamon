@@ -9,4 +9,8 @@ class monitoring extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+
+    public function hardware(){
+        return $this->hasOne(Hardware::class, 'id_ori', 'hardware_id');
+    }
 }

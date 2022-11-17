@@ -30,5 +30,6 @@ Route::get('/token', function (Request $request) {
 Route::get('/hardware', [HardwareController::class, 'index']);
 Route::post('/hardware/create', [HardwareController::class, 'create']);
 Route::post('/monitoring/create', [MonitoringController::class, 'create']);
+Route::get('/monitoring/{id}', [MonitoringController::class, 'call']);
 Route::post('/login', [HardwareController::class, 'login']);
 // Route::post('/sender/bookmark', [Sender::class, 'bookmark']);

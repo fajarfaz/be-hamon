@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 
 class MonitoringController extends Controller
 {
-    
+    public function call($id){
+        $response = monitoring::with('hardware')->where(['hardware_id' => $id])->get();
+
+        return response()->json($response);
+    }
+
     public function create(Request $request)
     {
         $hardwares = $request->json()->all();
