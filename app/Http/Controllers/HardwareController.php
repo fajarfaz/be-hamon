@@ -22,20 +22,22 @@ class HardwareController extends Controller
     {
         $hardwares = $request->json()->all();
 
+      ;
         foreach ($hardwares as $hardware) {
-         
             if ($hardware['name'] != 'Categories') {
-                $result = Hardware::updateOrCreate([
-                    'id_ori' => str_replace(' ','', $hardware['name']),
-                    'name' => $hardware['name'],
-                    'brand' => $hardware['brand'],
-                    'desc' => $hardware['desc'],
-                    'category' => $hardware['category'],
-                ]);
+                $result = Hardware::updateOrCreate(
+                    ['id_ori' => str_replace(' ', '', $hardware['name'])],
+                    [
+                        'id_ori' => str_replace(' ', '', $hardware['name']),
+                        'name' => $hardware['name'],
+                        'brand' => $hardware['brand'],
+                        'desc' => $hardware['desc'],
+                        'category' => $hardware['category'],
+                    ]
+                );
             }
 
-            // print_r($result);
+            return($result);
         }
-
     }
 }
