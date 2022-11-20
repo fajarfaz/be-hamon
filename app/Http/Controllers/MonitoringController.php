@@ -36,9 +36,7 @@ class MonitoringController extends Controller
                             'link' => $hardware['link'],
                         ]
                     );
-                  
                 }
-              
             }
 
             // print_r($result);
