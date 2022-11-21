@@ -36,6 +36,7 @@ class HardwareController extends Controller
                         'category' => $hardware['category'],
                     ]
                 );
+                print($result);
             }
         }
     }
