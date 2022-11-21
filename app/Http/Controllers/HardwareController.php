@@ -24,6 +24,7 @@ class HardwareController extends Controller
         $hardwares = $request->json()->all();
        
         foreach ($hardwares as $hardware) {
+            dd($hardware);
             if (@$hardware['name'] != 'Categories') {
                 $result = Hardware::updateOrCreate(
                     ['id_ori' => str_replace(' ', '', $hardware['name'])],
