@@ -20,9 +20,9 @@ class HardwareController extends Controller
 
     public function create(Request $request)
     {
+        // dd($request);
         $hardwares = $request->json()->all();
-
-      ;
+       
         foreach ($hardwares as $hardware) {
             if ($hardware['name'] != 'Categories') {
                 $result = Hardware::updateOrCreate(
@@ -31,13 +31,11 @@ class HardwareController extends Controller
                         'id_ori' => str_replace(' ', '', $hardware['name']),
                         'name' => $hardware['name'],
                         'brand' => $hardware['brand'],
-                        'desc' => $hardware['desc'],
+                        'desc' => html_entity_decode($hardware['desc']),
                         'category' => $hardware['category'],
                     ]
                 );
             }
-
-            return($result);
         }
     }
 }
