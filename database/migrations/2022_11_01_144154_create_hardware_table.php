@@ -18,6 +18,7 @@ class CreateHardwareTable extends Migration
             $table->string('id_ori');
             $table->string('name');
             $table->string('brand');
+            $table->text('link');
             $table->longText('desc');
             $table->string('category');
             $table->timestamps();

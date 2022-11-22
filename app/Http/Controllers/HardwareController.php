@@ -42,7 +42,6 @@ class HardwareController extends Controller
                         'range' => $newPrice-$firstPrice,
                         'info' => $trend->withoutRelations(),
                         'last_update' => $last_update
-
                     ]);
                 }
             } 
@@ -73,6 +72,7 @@ class HardwareController extends Controller
                         'id_ori' => str_replace(' ', '', $hardware['name']),
                         'name' => $hardware['name'],
                         'brand' => $hardware['brand'],
+                        'link' => $hardware['link'],
                         'desc' => html_entity_decode($hardware['desc']),
                         'category' => $hardware['category'],
                     ]
