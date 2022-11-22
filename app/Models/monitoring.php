@@ -11,6 +11,6 @@ class monitoring extends Model
     protected $guarded = ['id'];
 
     public function hardware(){
-        return $this->belongsTo(Hardware::class, 'id_ori', 'hardware_id');
+        return $this->hasOne(Hardware::class, 'id_ori', 'hardware_id');
     }
 }

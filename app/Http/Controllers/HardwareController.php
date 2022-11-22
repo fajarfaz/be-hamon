@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Hardware;
+use Carbon\Carbon;
 
 class HardwareController extends Controller
 {
@@ -31,6 +32,7 @@ class HardwareController extends Controller
             if ($trend->monitoring->count() > 0) {
                 $firstPrice = $trend->monitoring[0]->price;
                 $newPrice = $trend->monitoring[$trend->monitoring->count() - 1]->price;
+                $last_update = Carbon::createFromTimeStamp(strtotime($trend->monitoring[$trend->monitoring->count() - 1]->created_at))->diffForHumans();
                 $percentage = ($price / $firstPrice) / $trend->monitoring->count() - 1;
                 if ($percentage != 0) {
                     $response->push([
@@ -38,16 +40,19 @@ class HardwareController extends Controller
                         'old_price' => $firstPrice,
                         'new_price' => $newPrice,
                         'range' => $newPrice-$firstPrice,
-                        'info' => $trend->withoutRelations()
+                        'info' => $trend->withoutRelations(),
+                        'last_update' => $last_update
+
                     ]);
                 }
-            } else {
-                $response->push([
-                    'percentage' => 'nodata',
-                    'last_price' => 'nodata',
-                    'info' => $trend->withoutRelations()
-                ]);
-            }
+            } 
+            // else {
+            //     $response->push([
+            //         'percentage' => 'nodata',
+            //         'last_price' => 'nodata',
+            //         'info' => $trend->withoutRelations()
+            //     ]);
+            // }
         }
 
         // $response = monitoring::with('hardware')->where(['hardware_id' => $id])->get();
