@@ -17,6 +17,7 @@ class MonitoringController extends Controller
 
     public function create(Request $request)
     {
+
         $hardwares = $request->json()->all();
 
         foreach ($hardwares as $hardware) {
@@ -25,7 +26,6 @@ class MonitoringController extends Controller
                 $id = str_replace(' ', '', $hardware['name']);
                 $price = str_replace(['Rp ', '.'], '', $hardware['price']);
                 $cek = monitoring::whereDate('created_at','=', Carbon::today())-> where(['hardware_id' => $id ])->get();
-                // return $cek->count();
                 if($cek->count() < 1){ //cek apakah hari ini data sudah masuk
                     $result = monitoring::create(
                         [
@@ -41,5 +41,6 @@ class MonitoringController extends Controller
 
             // print_r($result);
         }
+        return response()->json($result);
     }
 }
