@@ -73,6 +73,7 @@ class HardwareController extends Controller
                         'name' => $hardware['name'],
                         'brand' => $hardware['brand'],
                         'link' => $hardware['link'],
+                        'image' => $hardware['image'],
                         'desc' => html_entity_decode($hardware['desc']),
                         'category' => $hardware['category'],
                     ]

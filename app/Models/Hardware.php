@@ -13,4 +13,11 @@ class Hardware extends Model
     public function monitoring(){
         return $this->hasMany(monitoring::class, 'hardware_id', 'id_ori');
     }
+
+    protected $casts = [
+        'image' => 'json'
+    ];
+
+
+
 }
