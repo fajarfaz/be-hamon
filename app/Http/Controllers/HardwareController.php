@@ -82,4 +82,5 @@ class HardwareController extends Controller
             }
         }
     }
+    
 }
